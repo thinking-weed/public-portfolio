@@ -47,7 +47,9 @@ body {
 .WorksAtWas,
 .SCD_map,
 .NoTenki,
-.OragaEC_maker {
+.OragaEC_maker,
+.techis_team_development,
+.OCO {
     padding: 1rem;
     opacity: 0.9;
 }
@@ -131,3 +133,4 @@ body {
     font-size: 1.5rem;
     margin: auto 0;
 }
+

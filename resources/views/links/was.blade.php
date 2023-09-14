@@ -6,7 +6,8 @@
         <div class="conditional-include2">
             @include('layouts.navigations.responsive_nav')
         </div>
-        <div class="main innerwrap">
+    </x-slot>
+        <div class="main innerwrap" >
             <div>
                 <h2 class="introduce leading-relaxed">{{ '先生方の御指導の下、以下のようなWebページの素材となる画像を Illustratorや Photoshopを使って作る練習を重ねました。' }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7">
@@ -58,5 +59,4 @@
                 </div>
             </div>
         </div>
-    </x-slot>
 </x-app-layout>
