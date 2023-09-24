@@ -1,9 +1,17 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
+    <x-slot name="header">
+        <div class="conditional-include1">
+            @include('layouts.navigations.navigation_home')
+        </div>
+        <div class="conditional-include2">
+            @include('layouts.navigations.responsive_nav')
+        </div>
+    </x-slot>
+    <div class="mb-4 text-sm text-gray-600" style="background-color: white;padding:1rem;border-radius:0.5rem;">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>
 
-    <form method="POST" action="{{ route('password.confirm') }}">
+    <form method="POST" action="{{ route('password.confirm') }}" style="background-color: white;">
         @csrf
 
         <!-- Password -->

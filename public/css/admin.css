@@ -42,3 +42,9 @@
     font-size: 1rem;
     float: right;
 }
+
+.passwordbox div img{
+    width: 30%;
+    margin: auto;
+    padding: 1rem;
+}

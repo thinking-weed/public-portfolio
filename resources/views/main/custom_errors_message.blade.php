@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="conditional-include1">
-            @include('layouts.navigations.main_nav')
+            @include('layouts.navigations.navigation_home')
         </div>
         <div class="conditional-include2">
             @include('layouts.navigations.responsive_nav')
@@ -17,4 +17,5 @@
             </p>
         </div>
     </div>
+    @include('layouts.footer')
 </x-app-layout>

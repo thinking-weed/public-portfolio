@@ -1,0 +1,7 @@
+/*ナビゲーションのCSS*/
+@import url(./navigation.css);
+
+/*フッターのCSS*/
+@import url(./footer.css);
+
+@import url(./home.css);

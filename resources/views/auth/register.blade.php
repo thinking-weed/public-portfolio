@@ -1,5 +1,13 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <x-slot name="header">
+        <div class="conditional-include1">
+            @include('layouts.navigations.navigation_home')
+        </div>
+        <div class="conditional-include2">
+            @include('layouts.navigations.responsive_nav')
+        </div>
+    </x-slot>
+    <form method="POST" action="{{ route('register') }}" style="background-color: white;padding:1rem;border-radius:0.5rem;">
         @csrf
 
         <!-- Name -->

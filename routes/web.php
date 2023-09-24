@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\biographyController;
+use App\Http\Controllers\BiographyController;
 use App\Http\Controllers\WorksLinkController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdministratorController;
@@ -11,6 +11,11 @@ use App\Models\ContactForm;
 use App\Models\User;
 use App\Models\WorksLink;
 use App\Http\Controllers\GithubUrlOnController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ErrorMessageController;
+use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\SearchController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,133 +49,77 @@ Route::get('/github_contact',[GithubUrlOnController::class,'showGithubURL'])->na
 
 Route::get('/was_works',[WorksLinkController::class,'showWasWorks'])->name('WasWorks.view');
 
-Route::get('/administrator/Opinion/Index',[AdministratorController::class,'OpinionIndex'])->name('administrator.opinion_indexview');
-
-Route::get('/administrator/Opinion/CheckedIndex',[AdministratorController::class,'OpinionCheckedIndex'])->name('administrator.opinion_checked_indexview');
-
+//AdministratorOnlyの画面表示
 Route::get('/administrator',[AdministratorController::class,'show'])->name('administrator.view');
 
+//Githubを使っていない、もしくはContactFormにポストした人の意見等の一覧表示
+Route::get('/NonGithubUsers/Index',[AdministratorController::class,'NonGithubUsersIndex'])->name('administrator.nongithub_users_indexview');
+
+//Githubを使ったことがある可能性の高い、もしくはGithubContactFormにポストした人の意見等の一覧表示
+Route::get('/GithubUsers/Index',[AdministratorController::class,'GithubUsersIndex'])->name('administrator.github_users_indexview');
+
+//Githubを使っていない人、もしくはContactFormの意見等のポスト
 Route::post('/contact/form/post',[ContactController::class,'storeContactForm'])->name('ContactForm.store');
 
+//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormの意見等のポスト
 Route::post('/github_contact/form/post',[GithubUrlOnController::class,'storeGithubContactForm'])->name('GithubContactForm.store');
 
+//Githubを使っていない、もしくはContactFormにポストした人の意見等の編集画面の表示
+Route::get('/Non_Github_users/posts/editorview/{post}', [ContactController::class, 'editorview'])->name('non_github_users_posts.editor.view');
 
-Route::get('/members', function () {
-    return view('members');
-})->middleware(['auth', 'verified'])->name('members');
+//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見等の編集画面の表示
+Route::get('/Github_users/posts/editorview/{post}', [GithubUrlOnController::class, 'editorview'])->name('github_users_posts.editor.view');
+
+//Githubを使っていない、もしくはContactFormにポストした人の意見等の削除
+Route::delete('/Non_Github_users/posts/destroy/{id}', [App\Http\Controllers\ContactController::class, 'postdestroy'])->name('non_github_user_post.destroy');
+
+//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見の削除
+Route::delete('/github_user_posts/destroy/{id}', [App\Http\Controllers\GithubUrlOnController::class, 'postdestroy'])->name('github_user_post.destroy');
+
+//Githubを使っていない、もしくはContactFormにポストした人の意見等を編集（コメントなどを付与）
+Route::patch('/Non_Github_users/posts/update/{post}', [ContactController::class, 'update'])->name('non_github_users_posts.info.update');
+//patchじゃなくてもputでもいいが、そのときはformの@method('patch')を@method('put')に統一
+
+//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見等を編集（コメントなどを付与）
+Route::patch('/Github_users/posts/update/{post}', [GithubUrlOnController::class, 'update'])->name('github_users_posts.info.update');
+//patchじゃなくてもputでもいいが、そのときはformの@method('patch')を@method('put')に統一
+
+
+//エラー画面を表示
+Route::get('/error/message',[ErrorMessageController::class,'render'])->name('custom_errors_message');
+
+Route::get('/main/members', function () {
+    return view('main.members');
+})->middleware(['auth', 'verified'])->name('main.members');
 /*ダッシュボードはログインする前のホーム画面のようなもの（ログイン状態は保持される）*/
-
-Route::middleware('auth')->group(function () {
-    Route::get('/biography', [biographyController::class, 'edit'])->name('biography.edit');
-    Route::patch('/biography', [biographyController::class, 'update'])->name('biography.update');
-    Route::delete('/biography', [biographyController::class, 'destroy'])->name('biography.destroy');
-});
 
 require __DIR__.'/auth.php';
 
+Route::get('/main/dashboard', function () {
+    return view('main.dashboard');
+})->middleware(['auth', 'verified'])->name('main.dashboard');
 
-// use App\Http\Controllers\Auth\AuthenticatedSessionController as AuthAuthenticatedSessionController;
-// use App\Http\Controllers\AuthController;
-// use App\Http\Controllers\ItemsController;
-// use App\Http\Controllers\ProfileController;
-// use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\AuthenticatedSessionController;
-// use App\Http\Controllers\ErrorMessageController;
-// use App\Http\Controllers\HomeController;
-// use App\Http\Controllers\SearchController;
-// use App\Http\Controllers\UsersController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-
-/**Controllerを使ったRoute設定は下記のように
- * Route::HTTPメソッド('php artisan serveをしたときにでてくるやつに付随させるURLの末尾（※自分で決め手よい）')
- * ,[～Controller::class,'～Controllerに記述した使いたいメソッド（関数名）']->name('左のRoute設定の名前（※自分で決め手よい）')
- *
- * なお、Httpメソッドのところのgetやpostは普通のphp のフォームタグのmethod=""の中身にかくものと同じようなもので
- * 次のいずれかが入る
- *
- * getは（見られても大丈夫なやつを）「表示」
- *postは（見られたらやばいやつを他から見えないようにしてサーバーサイドにデータを）「保存」
- *putかpatch（データの）「更新」
- *delete（データの）「削除」
- * **/
-
-//会員ですらない人がホーム画面をとりあえず表示できるようにするためのルート設定
-// Route::get('/', [HomeController::class,'showHome'])->name('home');
-
-//会員ですらない人もログイン画面を表示できるようにするためのルート設定
-// Route::get('/login/view',[AuthController::class,'showUserLoginPage'])->name('login_screen');
-
-//会員ですらない人も会員登録画面を表示できるようにするためのルート設定
-// Route::get('/register/view',[AuthController::class,'showUserRegisterPage'])->name('register_screen');
-
-//会員ですらない人が会員登録画面で一般会員「」登録をできるようにするルート（不具合がない場合、roleが0となるため）
-// Route::post('/registered_users/members', [UsersController::class, 'store'])->name('members');
-
-//ログインしている状態に許されるルート設定ぽい
-// Route::middleware('auth')->group(function () {
-
-// });
-
-//エラー画面を表示
-// Route::get('/error/message',[ErrorMessageController::class,'render'])->name('custom_errors_message');
+//ログインしてデータベースに名前がある人に許される設定
+Route::middleware('auth')->group(function () {
+    Route::get('/biography', [BiographyController::class, 'edit'])->name('biography.edit');
+    Route::patch('/biography', [BiographyController::class, 'update'])->name('biography.update');
+    Route::delete('/biography', [BiographyController::class, 'destroy'])->name('biography.destroy');
+});
 
 
-// require __DIR__.'/auth.php';
+// ----------------------------------------------------------------------------------------------------
 
 //一般会員（会員登録をした（＝データベースにユーザーデータが登録されている）人）
 // Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
     //ここにルート記述
-    //会員ですらない人も一度ログアウトした一般会員もログインすれば再度ダッシュボード表示できるするルート設定（前者の人を考慮し、外に除外）
-    // Route::get('/dashboard', [HomeController::class,'showDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
-    //（一般）会員登録をした人が商品一覧画面を表示できるようにするためのルート設定
-    // Route::get('/index/view',[ItemsController::class,'index'])->name('index_items.view');
-
-    //（一般）会員登録をした人が商品登録画面を表示できるようにするためのルート設定
-    // Route::get('/register/items/view',[ItemsController::class,'ShowItemsRegisterScreen'])->name('register_items.view');
-
-    //一般会員登録がしてあったら、一般会員は情報を編集画面を表示・編集ができるようにするためのルート設定
-    // メールアドレスはmigrationのunique()が効いて、他の人と同一の物にできない
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    //検索結果を表示
-    // Route::post('/search', [SearchController::class,'SearchAndIndex'])->name('searched.items.index');
-    //itemごとに個別表示
-    // Route::get('items/show/{item}',[ItemsController::class,'ShowEachItem1'])->name('showeach.item.view');
-    // Laravelではルート設定にパラメータ（数学と同じで媒介変数？、変わりうる値）を入れる場合、
-    // パラメータ名を波括弧で囲むらしい
 // });
 
 //管理者以上
 // Route::group(['middleware' => ['auth', 'can:admin-higher']], function() {
     //ここにルートを記述
-    //管理者アカウントのみ一般会員を削除できるためのルート設定
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    //管理者アカウントのみ商品を登録することができるためのルート設定
-    // Route::post('/register/items/post',[ItemsController::class,'store'])->name('register_items.post');
-
-    // Route::get('/items/editorview/{item}', [ItemsController::class, 'editorview'])->name('items.editor.view');
-
-    // Route::patch('/items/update/{item}', [ItemsController::class, 'update'])->name('items.info.update');
-    //patchじゃなくてもputでもいいが、そのときはformの@method('patch')を@method('put')に統一
-
-    // 商品一覧からの削除
-    // Route::delete('items/destroy/{id}', [App\Http\Controllers\ItemsController::class, 'itemdestroy'])->name('item.destroy');
 
 // });
 // この管理者以上は、ProvidersのAuthServiceProvider.phpに書かれた条件式に従う
 
-//管理者はどのように他の一般会員のアカウント情報を閲覧できるようにするのか？
-
 // roleのカラムの値をもとに管理者以上と一般ユーザーを振り分けられるようにする。
-// 具体的には管理者以上は商品登録をできるようにする。

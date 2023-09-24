@@ -4,36 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\WorksLink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;//ログインユーザーに関する情報をAuth::～を使えるようにするuse宣言
+use App\Models\User;//<--User情報をデータベースのusersテーブルから持ってくるために書く宣言
 
 class WorksLinkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     public function showWasWorks()
     {
-        return view('links.was');
+        $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
+        $login_user = Auth::user();//ログインユーザー情報を取得
+        return view('links.was',compact('auth_users','login_user'));
 
         //例
         //$posts = Post::all();
@@ -45,7 +26,9 @@ class WorksLinkController extends Controller
 
     public function showscd_map_imageWorks()
     {
-        return view('links.scd_map_image');
+        $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
+        $login_user = Auth::user();//ログインユーザー情報を取得
+        return view('links.scd_map_image',compact('auth_users','login_user'));
 
         //例
         //$posts = Post::all();
@@ -54,27 +37,5 @@ class WorksLinkController extends Controller
         /*viewのpostファイル直下のindex.blade.phpを表示する。
         なお、その際に上で定義した変数$postsを使用する*/
     }
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(WorksLink $worksLink)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, WorksLink $worksLink)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(WorksLink $worksLink)
-    {
-        //
-    }
 }

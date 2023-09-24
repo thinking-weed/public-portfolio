@@ -60,5 +60,5 @@
     </div>
     {{--  パスワード入力用モーダル  --}}
     @include('modals.password-authentication-modal.password-authentication-modal3')
-
+    @include('layouts.footer')
 </x-app-layout>

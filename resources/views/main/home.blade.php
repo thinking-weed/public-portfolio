@@ -55,18 +55,18 @@
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     </head>
-    <body class="antialiased" style="background-color: azure;">
-        <p class="first_message">
-            本HPをご覧いただきありがとうございます。※連絡先はメニューのContactのところに記載しております。改善点等ありましたら、レビューをpostしていただけるとありがたいです。
-        </p>
-        <div class="outerwrap relative">
-            <div class="conditional-include1 non_responsive_nav" style="position: absolute; top:-4rem; left:4rem;">
+    <body class="font-sans antialiased">
+        <div class="outerwrap">
+            <div class="conditional-include1 " >
             @include('layouts.navigations.navigation_home')
             </div>
-            <div class="conditional-include2">
+            <div class="conditional-include2 ">
             @include('layouts.navigations.responsive_nav')
             </div>
-            <div class="innerwrap">
+            <p class="first_message">
+                本HPをご覧いただきありがとうございます。※連絡先はメニューのContactのところに記載しております。改善点等ありましたら、レビューをpostしていただけるとありがたいです。
+            </p>
+            <div class="main innerwrap" style="margin-top: 3rem;">
                 <div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-13">
 
@@ -182,7 +182,7 @@
                                             <div class="accordion-body">
                                                 <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
                                                     <div class="learncontents">
-                                                        <span>{{'Laravel / Python3 / Vue.js / Typescript / GeoGebra script / Javascript / React / Tailwind CSS'}}</span>
+                                                        <span>{{'Laravel / Python3 / Flutter / Vue.js / Typescript / GeoGebra script / Javascript / React / Tailwind CSS'}}</span>
                                                     </div>
                                                 </p>
                                             </div>
@@ -251,59 +251,59 @@
                         from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg
                         shadow-2xl shadow-gray-500/20 dark:shadow-none flex
                         motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div class="article">
-                            <div class="techis_team_development_image topic flex rounded-full">
-                                <img src="{{ asset('/images/SCDmap-images/techlogo.png') }}" alt="TECH I.S.のロゴ">
-                                <img src="{{ asset('/images/team171-images/team-development.png') }}" alt="チーム開発のロゴ">
-                                <h2 class="font-semibold text-black-900" style="font-size:1.4rem;">
-                                    {{ '　Team-Development at TECH I.S>'}}<br>　（TECH I.S.のカリキュラムの一環としてリンク先の商品管理システムを作成）
-                                </h2>
+                            <div class="article">
+                                <div class="techis_team_development_image topic flex rounded-full">
+                                    <img src="{{ asset('/images/SCDmap-images/techlogo.png') }}" alt="TECH I.S.のロゴ">
+                                    <img src="{{ asset('/images/team171-images/team-development.png') }}" alt="チーム開発のロゴ">
+                                    <h2 class="font-semibold text-black-900" style="font-size:1.4rem;">
+                                        {{ '　Team-Development at TECH I.S>'}}<br>　（TECH I.S.のカリキュラムの一環としてリンク先の商品管理システムを作成）
+                                    </h2>
+                                </div>
+
+                                <div class="accordion techis_team_development" id="accordion_techis_team_development">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_techis_team_development" aria-expanded="false" aria-controls="collapseOne_techis_team_development">
+                                                Browse the overview In English
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne_techis_team_development" class="accordion-collapse collapse" data-bs-parent="#accordion_techis_team_development">
+                                            <div class="accordion-body">
+                                                <p class="mt-4 text-black-500 dark:text-black-400 leading-relaxed">
+                                                    {{ "　As part of the TECH I.S. curriculum, a team of four students including myself and one instructor created a production management system.
+                                                    I was mainly responsible for product registration, product search, navigation, layout design, user authentication,
+                                                    individual product display, account editing, product content editing, error pattern display, logout functions,
+                                                    and system deployment." }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_techis_team_development" aria-expanded="false" aria-controls="collapseTwo_SCD_map">
+                                            日本語での概要
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo_techis_team_development" class="accordion-collapse collapse" data-bs-parent="#accordion_techis_team_development">
+                                            <div class="accordion-body">
+                                                <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
+                                                    　TECH I.S.のカリキュラムの一環として、受講生４人、講師１人のチームでリンク先の商品管理システムを作成しました。商品登録機能、商品検索機能、
+                                                    ナビゲーション、レイアウトデザイン、ユーザー認証機能、商品個別表示機能、アカウント編集機能、商品内容編集機能、エラーパターンの表示機能、ログアウト機能、
+                                                    デプロイなどを私は主に担当しました。
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="accordion techis_team_development" id="accordion_techis_team_development">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_techis_team_development" aria-expanded="false" aria-controls="collapseOne_techis_team_development">
-                                            Browse the overview In English
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne_techis_team_development" class="accordion-collapse collapse" data-bs-parent="#accordion_techis_team_development">
-                                        <div class="accordion-body">
-                                            <p class="mt-4 text-black-500 dark:text-black-400 leading-relaxed">
-                                                {{ "　As part of the TECH I.S. curriculum, a team of four students including myself and one instructor created a production management system.
-                                                I was mainly responsible for product registration, product search, navigation, layout design, user authentication,
-                                                individual product display, account editing, product content editing, error pattern display, logout functions,
-                                                and system deployment." }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_techis_team_development" aria-expanded="false" aria-controls="collapseTwo_SCD_map">
-                                        日本語での概要
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo_techis_team_development" class="accordion-collapse collapse" data-bs-parent="#accordion_techis_team_development">
-                                        <div class="accordion-body">
-                                            <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
-                                                　TECH I.S.のカリキュラムの一環として、受講生４人、講師１人のチームでリンク先の商品管理システムを作成しました。商品登録機能、商品検索機能、
-                                                ナビゲーション、レイアウトデザイン、ユーザー認証機能、商品個別表示機能、アカウント編集機能、商品内容編集機能、エラーパターンの表示機能、ログアウト機能、
-                                                デプロイなどを私は主に担当しました。
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="ToWorks" href="https://team171-system-9ae6c37d5beb.herokuapp.com/" >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                                </svg>
+                                <p>To works</p>
+                            </a>
                         </div>
-
-                        <a class="ToWorks" href="https://team171-system-9ae6c37d5beb.herokuapp.com/" >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                            <p>To works</p>
-                        </a>
-                    </div>
 
                         <div id="SCD_map" class="SCD_map scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
                             from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg
@@ -517,7 +517,7 @@
                                         <img src="{{ asset('/images/oco-images/oco-icon.png') }}" alt="OCOのロゴ">
                                         <h2 class="font-semibold text-black-900">
                                             {{ '　OCO　'}}
-                                            <br>　～ツンデレ系Chatbot で女心を一緒に勉強しましょう～
+                                            <br>　～ツンデレ系Chatbot で異性の心を一緒に勉強しましょう～
                                         </h2>
                                     </div>
 
@@ -568,9 +568,9 @@
                 </div>
             </div>
         </div>
-
+        <div style="margin-top: 3rem">
         @include('layouts.footer')
-
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/home.js') }}"></script>

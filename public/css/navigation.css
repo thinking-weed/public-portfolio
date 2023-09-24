@@ -10,31 +10,30 @@
     width: 100%;
     text-align: center;
     display: flex;
-    padding-bottom: 1rem;
 }
 
 /*navigation_home以外のCSS*/
 
 .navcontents h2{
-    padding: auto 1rem;
-    font-size: 250%;
-    margin: auto 3rem;
+    font-size: 150%;
+    margin: auto 0;
+    padding-left: 2rem;
+    width: 10%;
 }
 
 .pagelinks{
     display: flex;
     margin:auto 0;
-    width:100%;
-    padding: auto 0.5rem;
+    width:80%;
 }
 
 .pagelinks a{
     display: block;
     justify-content: space-evenly;
-    padding: auto 0;
-    font-size: 1rem;
+    padding:0;
+    font-size: 1.5rem;
     scroll-behavior: smooth;
-    width: 90%;
+    width: 70%;
     margin: auto 0;
 }
 .pagelinks a:hover {
@@ -43,34 +42,47 @@
 }
 
 /*navigation_home独自のCSS*/
+.navcontents.home_nav{
+    padding:auto 0;
+}
 
 .navcontents.home_nav h2{
-    padding:auto 0;
     font-size: 150%;
-    margin:auto 1rem;
+    margin:auto 0;
 }
 
 .navcontents.home_nav .pagelinks{
     display: flex;
     margin:auto 0;
     width:80%;
-    padding: auto 0;
 }
 
 .navcontents.home_nav .pagelinks a{
     display: block;
-    justify-content: space-evenly;
-    padding-right: 2rem;
-    padding-left: 1rem;
+    padding-right:0.4rem;
+    padding-left:0;
     font-size: 1.4rem;
     scroll-behavior: smooth;
+    margin:auto 0;
 }
 
+.about_account_links{
+    display: flex;
+    margin:auto 0;
+    text-align: center;
+    padding-right: 2rem;
+}
+.about_account_links a{
+    background-color: white;
+}
+.users_selectbox{
+    margin: auto 0;
+}
 /*レスポンシブナビゲーション*/
 
 .responsive_navbar{
     float: right;
-    margin: auto 3rem;
+    margin: 1rem;
     padding-top: 4rem;
 }
 

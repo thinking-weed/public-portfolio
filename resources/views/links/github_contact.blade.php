@@ -26,7 +26,7 @@
                         <div class="GithubURL rounded-full">
                             <img src="{{ asset('/images/contact-images/github.png') }}" alt="Githubアイコン">
                             <h2 class="font-semibold text-black-900">
-                                <a href="https://github.com/thinking-weed/portfolio">{{ 'Github URL' }}<br>{{ 'https://github.com/thinking-weed?tab=repositories' }}</a>
+                                <a href="https://github.com/thinking-weed/public-portfolio">{{ 'Github URL' }}<br>{{ 'https://github.com/thinking-weed/public-portfolio' }}</a>
                             </h2>
                         </div>
                     </div>
@@ -55,4 +55,5 @@
 
         </form>
     </div>
+    @include('layouts.footer')
 </x-app-layout>

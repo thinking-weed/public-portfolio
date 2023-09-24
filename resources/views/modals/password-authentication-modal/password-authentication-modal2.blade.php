@@ -15,7 +15,7 @@
           <div>
               <div style="position:absolute; top:0.5rem; right:0.5rem; pading:0.5rem;">
                   <button type="button" class="btn btn-secondary" style="background-color: blue;" data-dismiss="modal" onclick="event.preventDefault(); Modalerase2()">Close</button>
-                  <button type="button" class="btn btn-primary" style="background-color: blue;" id="password-submit2" onclick="event.preventDefault(); passwordCheck2()">Submit</button>
+                  <button type="button" class="btn btn-primary" style="background-color: blue;" id="password-submit2" onclick="event.preventDefault(); passwordCheck2()">Check</button>
               </div>
           </div>
       </div>

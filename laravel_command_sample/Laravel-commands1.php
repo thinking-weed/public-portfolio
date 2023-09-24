@@ -11,6 +11,8 @@ composer create-project --prefer-dist laravel/laravel 任意のファイル名
 
 composer create-project "laravel/laravel=10.*" 任意のファイル名
 
+なお、git cloneした場合、venderが消えるため、composer installとnpm installが必要（→vender復元）
+ローカルを開発環境にする場合、.envのデータベース名等を修正
 ---------------------------------------------------------------------------------------------------------
 
 php artisan serve Laravelサーバーの起動
