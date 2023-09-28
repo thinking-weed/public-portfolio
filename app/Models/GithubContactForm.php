@@ -19,7 +19,6 @@ class GithubContactForm extends Model
     //一方、publicキーワードを使って宣言されたプロパティやメソッドは、クラスの内部からも、クラスの外部からも直接アクセスできます。
     //つまり、どの場所からでもアクセス可能
     protected $fillable = [
-        'id',
         'VisitorName',
         'VisitorEmail',
         'QuestionOrOpinion',

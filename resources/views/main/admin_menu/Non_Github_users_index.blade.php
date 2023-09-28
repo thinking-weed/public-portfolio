@@ -8,7 +8,7 @@
         </div>
 
         <h2 class="admin_index font-semibold leading-relaxed">
-            一覧表示{{ '（※Githubユーザーでない・エンジニアが周りにいない可能性が高い）' }}
+            一覧表示{{ '（※Githubユーザーでない可能性が高い）' }}
         </h2>
     </x-slot>
 
@@ -17,8 +17,8 @@
             <div class="mt-4 p-8 bg-white w-full rounded-2xl">
 
                 <h2 class="contact_id_at p-4 font-semibold">
-                    <p>{{ $post->id .'番目の投稿です。' }}</p>
-                    <p>{{ '～投稿日時：' . $post->created_at .'～'}}</p>
+                    <p>{{ $loop->index + 1 }} 番目の投稿です。</p>
+                    <p>{{ '～投稿・更新日時：' . $post->created_at .'～'}}</p>
                     {{-- アロー演算子の右のオプションはここではカラム名 --}}
                     <div class="btn_part flex">
                         <a href="{{ route('non_github_users_posts.editor.view',$post->id) }}" class="block">

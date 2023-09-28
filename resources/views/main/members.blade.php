@@ -20,12 +20,12 @@
                 </x-slot>
 
                 <x-slot name="content">
-                    <x-dropdown-link :href="route('biography.edit')">
+                    <x-dropdown-link :href="route('biography.edit')" style="padding:0.5rem;">
                         {{ __('Profile') }}
                     </x-dropdown-link>
 
                     {{-- Authentication --}}
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="{{ route('logout') }}" style="padding:0.5rem;">
                         @csrf
 
                         <x-dropdown-link :href="route('logout')"

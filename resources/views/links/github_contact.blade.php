@@ -26,7 +26,7 @@
                         <div class="GithubURL rounded-full">
                             <img src="{{ asset('/images/contact-images/github.png') }}" alt="Githubアイコン">
                             <h2 class="font-semibold text-black-900">
-                                <a href="https://github.com/thinking-weed/public-portfolio">{{ 'Github URL' }}<br>{{ 'https://github.com/thinking-weed/public-portfolio' }}</a>
+                                <a href="https://github.com/thinking-weed?tab=repositories">{{ 'Github URL' }}<br>{{ 'https://github.com/thinking-weed?tab=repositories' }}</a>
                             </h2>
                         </div>
                     </div>
