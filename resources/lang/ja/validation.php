@@ -24,7 +24,7 @@ return [
     ],
     'boolean' => 'この欄（:attribute）には、半角英数で 0 か 1 で入力してください。',
     'can' => ':attributeに権限のない値が含まれています。',
-    'confirmed' => ':attributeと確認フィールドが一致していません。',
+    'confirmed' => ':attributeと確認用の再入力した値が一致していません。',
     'current_password' => 'パスワードが正しくありません。',
     'date' => ':attributeには有効な日付を指定してください。',
     'date_equals' => ':attributeには、:dateと同じ日付けを指定してください。',
@@ -142,7 +142,7 @@ return [
     'timezone' => ':attributeには、有効なゾーンを指定してください。',
     'type' => 'ここには、それほど大きくない数値（小桁整数型（smallInteger））を入力して下さい。
             なお登録画面においては、カテゴリを選択すると数値が選択されたことになります。',
-    'unique' => ':attributeの値は既に存在しています。',
+    'unique' => ':attributeの値は既に存在しているため、別のものを検討して下さい。',
     'uploaded' => ':attributeのアップロードに失敗しました。',
     'uppercase' => ':attributeは、大文字のみで指定してください。',
     'url' => ':attributeに正しい形式を指定してください。',

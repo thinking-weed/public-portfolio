@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="conditional-include1">
             @include('layouts.navigations.navigation_home')
@@ -10,7 +10,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}" style="background-color: white;padding:1rem;border-radius:0.5rem;">
+    <form method="POST" action="{{ route('login') }}" style="background-color: white;padding:1rem;border-radius:0.5rem;margin:10rem auto 0; width:30%;">
         @csrf
 
         <!-- Email Address -->
@@ -52,4 +52,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-app-layout>

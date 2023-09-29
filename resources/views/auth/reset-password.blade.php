@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="header">
         <div class="conditional-include1">
             @include('layouts.navigations.navigation_home')
@@ -7,7 +7,7 @@
             @include('layouts.navigations.responsive_nav')
         </div>
     </x-slot>
-    <form method="POST" action="{{ route('password.store') }}" style="background-color: white;padding:1rem;border-radius:0.5rem;">
+    <form method="POST" action="{{ route('password.store') }}" style="background-color: white;padding:1rem;border-radius:0.5rem;margin:7rem auto 0; width:30%;">
         @csrf
 
         <!-- Password Reset Token -->
@@ -44,4 +44,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-app-layout>

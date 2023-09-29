@@ -18,7 +18,7 @@
 
                 <h2 class="contact_id_at p-4 font-semibold">
                     <p>{{ $loop->index + 1 }} 番目の投稿です。</p>
-                    <p>{{ '～投稿・更新日時：' . $post->created_at .'～'}}</p>
+                    <p>{{ '～投稿・更新日時：' . $post->updated_at .'～'}}</p>
                     {{-- アロー演算子の右のオプションはここではカラム名 --}}
                     <div class="btn_part flex">
                         <a href="{{ route('github_users_posts.editor.view',$post->id) }}" class="block">
@@ -45,7 +45,7 @@
 
                 <h2 class="visitorname_email p-4 font-semibold">
                     <p>{{ 'お名前、または御法人名：' . $post->VisitorName }}</p>
-                    <p>{{ 'Emailアドレズ：' . $post->VisitorEmail }}</p>
+                    <p>{{ 'Emailアドレス：' . $post->VisitorEmail }}</p>
                 </h2>
                     <hr class="w-full">
                 <p class=""></p>
