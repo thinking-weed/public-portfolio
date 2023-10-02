@@ -11,13 +11,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            @foreach ($Github_users_posts as $post)
-            <div class="post_edit_area p-4 sm:p-8 shadow sm:rounded-lg" style="opacity: 0.8;">
+            <div class="post_edit_area p-4 sm:p-8 shadow sm:rounded-lg" style="opacity: 0.8;margin-top:1rem;">
                 <div>
                     @include('PostEdit.GithubUser.update-posts-information-form')
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
 </x-app-layout>

@@ -64,6 +64,12 @@ Route::post('/contact/form/post',[ContactController::class,'storeContactForm'])-
 //Githubを使ったことがある可能性の高い人、もしくはGithubContactFormの意見等のポスト
 Route::post('/github_contact/form/post',[GithubUrlOnController::class,'storeGithubContactForm'])->name('GithubContactForm.store');
 
+// Githubを使っていない、もしくはContactFormにポストした人の意見等の個別表示
+Route::get('/contact/form/post/each_show/{post}',[ContactController::class,'ShowEach'])->name('ContactForm.showeach');
+
+// Githubを使っていない、もしくはContactFormにポストした人の意見等の個別表示
+Route::get('/github_contact/form/post/each_show/{post}',[GithubUrlOnController::class,'ShowEach'])->name('GithubContactForm.showeach');
+
 //Githubを使っていない、もしくはContactFormにポストした人の意見等の編集画面の表示
 Route::get('/Non_Github_users/posts/editorview/{post}', [ContactController::class, 'editorview'])->name('non_github_users_posts.editor.view');
 

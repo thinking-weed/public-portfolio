@@ -101,12 +101,11 @@ class ContactController extends Controller
         /**
      *質問・意見等の編集（コメントの付与）
      * */
-    public function editorview($id)
+    public function editorview(ContactForm $post)
     {
-        $non_Github_users_posts = ContactForm::all();//0のものは表示、１のものは論理削除
         $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
         $login_user = Auth::user();//ログインユーザー情報を取得
-        return view('PostEdit.NonGithubUser.edit',compact('auth_users','login_user','non_Github_users_posts'));
+        return view('PostEdit.NonGithubUser.edit',compact('post','auth_users','login_user'));
     }
     // ---------------------------------------------------------------------------------------------------------------------------
     // ここで変数にidを指定しているので、この関数に対する{{ route('items.editor.view',$item->id) }}の「->id」がないとエラーになる
@@ -167,11 +166,13 @@ class ContactController extends Controller
     // 個別表示機能追加
 
     public function ShowEach(ContactForm $post){
+        $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
+        $login_user = Auth::user();//ログインユーザー情報を取得
         // 関数の中の第一引数は、タイプヒント（引数の型を指定するもの  ※モデル名を書いて引数の型を制限
         // 第二引数の名前は任意でいいが、おそらくRoute設定のパラメータ名と一致させる必要がある）
         // おそらく、$itemはItemsモデルのインスタンスにあたる。
         // これを書いた時点で$itemのidをデータベースに受け渡し、
         // 該当の$itemレコードを取得という流れが設定されたことになるらしい（依存注入という）。
-        return view('admin_menu.show_each',compact('post'));
+        return view('main.admin_menu.non_github_users_post_showeach',compact('post','auth_users','login_user'));
     }
 }

@@ -6,26 +6,24 @@
         <div class="conditional-include2">
             @include('layouts.navigations.responsive_nav')
         </div>
-
-        <h2 class="admin_index font-semibold leading-relaxed">
-            一覧表示{{ '（※Githubユーザーである可能性が高い）' }}
-        </h2>
     </x-slot>
+        {{-- ここに入力したものは、resourceのlayoutsフォルダの中のapp.blade.phpの
+            {{ slot }}のところに挿入され、「app.blade.php」が表示される--}}
 
-    <div class="mx-auto px-6">
-        @foreach($Github_users_posts as $post){{-- compact等で渡した変数を組み込むときは.blade.phpファイル内では、$をつける --}}
+    <div class="container">
+        <div class="container mx-auto sm:px-6 lg:px-8">
+            <div class="flex">
+                <div class="each_item_show container" >
+                    <p style="font-size:2rem;"><strong>個別表示</strong></p>
+                </div>
+            </div>
+
             <div class="mt-4 p-8 bg-white w-full rounded-2xl">
 
                 <h2 class="contact_id_at p-4 font-semibold">
-                    <p>{{ $loop->index + 1 }} 番目の投稿です。</p>
                     <p>{{ '～投稿・更新日時：' . $post->updated_at .'～'}}</p>
                     {{-- アロー演算子の右のオプションはここではカラム名 --}}
                     <div class="btn_part flex">
-                        <a href="{{ route('GithubContactForm.showeach',$post) }}" class="block">
-                            <x-primary-button>
-                                個別表示
-                            </x-primary-button>
-                        </a>
                         <a href="{{ route('github_users_posts.editor.view',$post->id) }}" class="block">
                             <x-primary-button>
                                 編集
@@ -38,7 +36,7 @@
                             <x-primary-button id="delete-post_id-{{ $post->id }}">削除</x-primary-button>
                             <input type="hidden" class="" name="post_id" value="{{ $post->id }}">
                         </form>
-                        <a href="{{ route('administrator.view') }}" >
+                        <a href="{{ route('administrator.github_users_indexview') }}" >
                             <x-primary-button class='back_btn'>
                                 戻る
                             </x-primary-button>
@@ -56,7 +54,8 @@
                 <p class=""></p>
                 <textarea class="question_or_opinion">　{{ $post->QuestionOrOpinion }}</textarea>
             </div>
-        @endforeach
-    </div>
 
+        </div>
+    </div>
 </x-app-layout>
+

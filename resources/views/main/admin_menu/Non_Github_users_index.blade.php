@@ -21,6 +21,11 @@
                     <p>{{ '～投稿・更新日時：' . $post->updated_at .'～'}}</p>
                     {{-- アロー演算子の右のオプションはここではカラム名 --}}
                     <div class="btn_part flex">
+                        <a href="{{ route('ContactForm.showeach',$post) }}" class="block">
+                            <x-primary-button>
+                                個別表示
+                            </x-primary-button>
+                        </a>
                         <a href="{{ route('non_github_users_posts.editor.view',$post->id) }}" class="block">
                             <x-primary-button>
                                 編集
