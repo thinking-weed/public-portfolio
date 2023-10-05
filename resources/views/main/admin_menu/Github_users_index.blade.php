@@ -10,6 +10,17 @@
         <h2 class="admin_index font-semibold leading-relaxed">
             一覧表示{{ '（※Githubユーザーである可能性が高い）' }}
         </h2>
+        <div class="search_box" style="margin-left: 2rem;">
+            <form class="search_form" method="post" action="{{ route('github_users.searched.index') }}" enctype="multipart/form-data">
+                @csrf
+                <input type="text" name="searchTerm" placeholder="検索キーワードを入力">
+                {{-- ここでname="searchTerm"となっているので、ここで入力した値がinput('searchTerm')が定義された値がpostされて、actionのSearchControllerに --}}
+                {{-- とんでいると思われる --}}
+                <x-primary-button style="padding: 0.5rem;">
+                    検索
+                </x-primary-button>
+            </form>
+        </div>
     </x-slot>
 
     <div class="mx-auto px-6">

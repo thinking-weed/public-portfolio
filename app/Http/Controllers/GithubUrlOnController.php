@@ -142,7 +142,7 @@ class GithubUrlOnController extends Controller
                         //更新後のメッセージを$messageでbladeに渡す
     }
 
-    // 個別表示機能追加
+    //------------------------------------- 個別表示機能追加-----------------------------------------------
 
     public function ShowEach(GithubContactForm $post){
         $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
@@ -155,5 +155,26 @@ class GithubUrlOnController extends Controller
         return view('main.admin_menu.github_users_post_showeach',compact('post','auth_users','login_user'));
     }
 
+    // ---------------------------------------検索機能追加（管理者権限画面）------------------------------------
 
+    public function SearchAndIndex(Request $request)
+    {
+        $posts = GithubContactForm::where('delete_flag', 0)->get();//0のものは表示、１のものは論理削除
+        $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
+        $login_user = Auth::user();//ログインユーザー情報を取得
+        $searchTerm = $request->input('searchTerm');
+
+        // データベースの3つのカラムを対象にあいまい検索を実行
+        $search_results = GithubContactForm::where('VisitorName', 'like', "%$searchTerm%")
+                            ->orWhere('VisitorEmail', 'like', "%$searchTerm%")
+                            ->orWhere('QuestionOrOpinion', 'like', "%$searchTerm%")
+                            ->get();//->get()で一気に取得
+        $count_search_results = GithubContactForm::where('VisitorName', 'like', "%$searchTerm%")
+                                ->orWhere('VisitorEmail', 'like', "%$searchTerm%")
+                                //orWhereはたぶんorだし、またはこれを検索結果に含めるの意味
+                                ->orWhere('QuestionOrOpinion', 'like', "%$searchTerm%")
+                                ->count();//->count()で取得したレコードの数を数える
+
+        return view('main.admin_menu.Non_Github_users_searched_index', compact('search_results','count_search_results','auth_users','posts','login_user'));
+    }
 }

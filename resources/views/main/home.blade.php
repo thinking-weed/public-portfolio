@@ -182,7 +182,7 @@
                                             <div class="accordion-body">
                                                 <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
                                                     <div class="learncontents">
-                                                        <span>{{'Laravel / Python3 / Flutter / Vue.js / Typescript / GeoGebra script / Javascript / React / Tailwind CSS'}}</span>
+                                                        <span>{{'Laravel / Python3 / Django / Flutter / Vue.js / Typescript / GeoGebra script / Javascript / React / Tailwind CSS'}}</span>
                                                     </div>
                                                 </p>
                                             </div>

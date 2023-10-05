@@ -49,14 +49,7 @@ Route::get('/github_contact',[GithubUrlOnController::class,'showGithubURL'])->na
 
 Route::get('/was_works',[WorksLinkController::class,'showWasWorks'])->name('WasWorks.view');
 
-//AdministratorOnlyの画面表示
-Route::get('/administrator',[AdministratorController::class,'show'])->name('administrator.view');
-
-//Githubを使っていない、もしくはContactFormにポストした人の意見等の一覧表示
-Route::get('/NonGithubUsers/Index',[AdministratorController::class,'NonGithubUsersIndex'])->name('administrator.nongithub_users_indexview');
-
-//Githubを使ったことがある可能性の高い、もしくはGithubContactFormにポストした人の意見等の一覧表示
-Route::get('/GithubUsers/Index',[AdministratorController::class,'GithubUsersIndex'])->name('administrator.github_users_indexview');
+// -----------------------------------------------------------------------------------------------------------
 
 //Githubを使っていない人、もしくはContactFormの意見等のポスト
 Route::post('/contact/form/post',[ContactController::class,'storeContactForm'])->name('ContactForm.store');
@@ -64,32 +57,52 @@ Route::post('/contact/form/post',[ContactController::class,'storeContactForm'])-
 //Githubを使ったことがある可能性の高い人、もしくはGithubContactFormの意見等のポスト
 Route::post('/github_contact/form/post',[GithubUrlOnController::class,'storeGithubContactForm'])->name('GithubContactForm.store');
 
-// Githubを使っていない、もしくはContactFormにポストした人の意見等の個別表示
-Route::get('/contact/form/post/each_show/{post}',[ContactController::class,'ShowEach'])->name('ContactForm.showeach');
+//AdministratorOnlyの画面表示
+Route::get('/administrator',[AdministratorController::class,'show'])->name('administrator.view');
+
+// ----------------------------------------------------------------------------------------------------------------
+
+//Githubを使っていない、もしくはContactFormにポストした人の意見等の一覧表示
+Route::get('/NonGithubUsers/Index',[AdministratorController::class,'NonGithubUsersIndex'])->name('administrator.nongithub_users_indexview');
+
+//Githubを使っていない、もしくはContactFormにポストした人の意見等の検索結果を表示
+Route::post('/NonGithubUsers/searched/index', [ContactController::class,'SearchAndIndex'])->name('non_github_users.searched.index');
 
 // Githubを使っていない、もしくはContactFormにポストした人の意見等の個別表示
-Route::get('/github_contact/form/post/each_show/{post}',[GithubUrlOnController::class,'ShowEach'])->name('GithubContactForm.showeach');
+Route::get('/contact/form/post/each_show/{post}',[ContactController::class,'ShowEach'])->name('ContactForm.showeach');
 
 //Githubを使っていない、もしくはContactFormにポストした人の意見等の編集画面の表示
 Route::get('/Non_Github_users/posts/editorview/{post}', [ContactController::class, 'editorview'])->name('non_github_users_posts.editor.view');
 
-//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見等の編集画面の表示
-Route::get('/Github_users/posts/editorview/{post}', [GithubUrlOnController::class, 'editorview'])->name('github_users_posts.editor.view');
-
 //Githubを使っていない、もしくはContactFormにポストした人の意見等の削除
 Route::delete('/Non_Github_users/posts/destroy/{id}', [App\Http\Controllers\ContactController::class, 'postdestroy'])->name('non_github_user_post.destroy');
-
-//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見の削除
-Route::delete('/github_user_posts/destroy/{id}', [App\Http\Controllers\GithubUrlOnController::class, 'postdestroy'])->name('github_user_post.destroy');
 
 //Githubを使っていない、もしくはContactFormにポストした人の意見等を編集（コメントなどを付与）
 Route::patch('/Non_Github_users/posts/update/{post}', [ContactController::class, 'update'])->name('non_github_users_posts.info.update');
 //patchじゃなくてもputでもいいが、そのときはformの@method('patch')を@method('put')に統一
 
+// ---------------------------------------------------------------------------------------------------------------------------
+
+//Githubを使ったことがある可能性の高い、もしくはGithubContactFormにポストした人の意見等の一覧表示
+Route::get('/GithubUsers/Index',[AdministratorController::class,'GithubUsersIndex'])->name('administrator.github_users_indexview');
+
+//Githubを使ったことがある可能性の高い、もしくはGithubContactFormにポストした人の意見等の検索結果を表示
+Route::post('/GithubUsers/searched/index', [GithubUrlOnController::class,'SearchAndIndex'])->name('github_users.searched.index');
+
+// Githubを使ったことがある可能性が高い人、もしくはGithubContactFormにポストした人の意見等の個別表示
+Route::get('/github_contact/form/post/each_show/{post}',[GithubUrlOnController::class,'ShowEach'])->name('GithubContactForm.showeach');
+
+//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見等の編集画面の表示
+Route::get('/Github_users/posts/editorview/{post}', [GithubUrlOnController::class, 'editorview'])->name('github_users_posts.editor.view');
+
+//Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見の削除
+Route::delete('/github_user_posts/destroy/{id}', [App\Http\Controllers\GithubUrlOnController::class, 'postdestroy'])->name('github_user_post.destroy');
+
 //Githubを使ったことがある可能性の高い人、もしくはGithubContactFormにポストした人の意見等を編集（コメントなどを付与）
 Route::patch('/Github_users/posts/update/{post}', [GithubUrlOnController::class, 'update'])->name('github_users_posts.info.update');
 //patchじゃなくてもputでもいいが、そのときはformの@method('patch')を@method('put')に統一
 
+//------------------------------------------------------------------------------------------------------------------------------------------
 
 //エラー画面を表示
 Route::get('/error/message',[ErrorMessageController::class,'render'])->name('custom_errors_message');
