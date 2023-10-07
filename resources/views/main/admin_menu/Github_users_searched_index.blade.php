@@ -61,6 +61,9 @@
                 <textarea class="question_or_opinion">　{{ $search_result->QuestionOrOpinion }}</textarea>
             </div>
         @endforeach
+        <div class="pagination">
+            {{ $search_results->links() }}
+        </div>
     </div>
 
 </x-app-layout>

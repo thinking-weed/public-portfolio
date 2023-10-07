@@ -159,7 +159,7 @@ class GithubUrlOnController extends Controller
 
     public function SearchAndIndex(Request $request)
     {
-        $posts = GithubContactForm::where('delete_flag', 0)->get();//0のものは表示、１のものは論理削除
+        $posts = GithubContactForm::where('delete_flag', 0)->paginate(10);//0のものは表示、１のものは論理削除
         $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
         $login_user = Auth::user();//ログインユーザー情報を取得
         $searchTerm = $request->input('searchTerm');

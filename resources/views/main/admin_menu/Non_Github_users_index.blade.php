@@ -68,6 +68,9 @@
                 <textarea class="question_or_opinion">　{{ $post->QuestionOrOpinion }}</textarea>
             </div>
         @endforeach
+        <div class="pagination">
+            {{ $non_Github_users_posts->links() }}
+        </div>
     </div>
 
 </x-app-layout>
