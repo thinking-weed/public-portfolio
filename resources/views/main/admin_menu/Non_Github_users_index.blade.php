@@ -23,12 +23,24 @@
         </div>
     </x-slot>
 
+    {{-- post投稿ループ累積処理用 --}}
+    @php
+        $currentPage = $non_Github_users_posts->currentPage();
+        $postsPerPage = $non_Github_users_posts->perPage();
+        $cumulativeIndex = ($currentPage - 1) * $postsPerPage;
+    @endphp
+
     <div class="mx-auto px-6">
         @foreach($non_Github_users_posts as $post){{-- compact等で渡した変数を組み込むときは.blade.phpファイル内では、$をつける --}}
             <div class="mt-4 p-8 bg-white w-full rounded-2xl">
 
                 <h2 class="contact_id_at p-4 font-semibold">
-                    <p>{{ $loop->index + 1 }} 番目の投稿です。</p>
+                    <p>
+                        {{ $cumulativeIndex + $loop->iteration }} 番目の投稿です。
+                    </p>
+                    @php
+                    $cumulativeIndex+1;
+                    @endphp
                     <p>{{ '～投稿・更新日時：' . $post->updated_at .'～'}}</p>
                     {{-- アロー演算子の右のオプションはここではカラム名 --}}
                     <div class="btn_part flex">
