@@ -57,7 +57,6 @@
                     <p>{{ 'Emailアドレス：' . $search_result->VisitorEmail }}</p>
                 </h2>
                     <hr class="w-full">
-                <p class=""></p>
                 <textarea class="question_or_opinion">　{{ $search_result->QuestionOrOpinion }}</textarea>
             </div>
         @endforeach

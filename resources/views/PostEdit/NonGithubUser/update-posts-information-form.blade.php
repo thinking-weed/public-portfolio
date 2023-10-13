@@ -20,8 +20,8 @@
         @csrf
         @method('patch')
 
-        <div class="hidden">
-            <label for="id">{{ __('フォームに投稿された順（idが若い方が早い）') }}</label>
+        <div>
+            <label for="id">{{'本来のid'}}</label>
             <x-text-input id="id" name="id" type="text" class="mt-1 block w-full" :value="old('id', $post->id)"  />
             <x-input-error class="mt-2" :messages="$errors->get('id')" />
         </div>

@@ -80,11 +80,12 @@ class GithubUrlOnController extends Controller
         return redirect()->route('administrator.github_users_indexview');
     }
 
-    public function editorview(GithubContactForm $post)
+    public function editorview()
     {
         $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
         $login_user = Auth::user();//ログインユーザー情報を取得
-        return view('PostEdit.GithubUser.edit',compact('post','auth_users','login_user'));
+        $posts = GithubContactForm::paginate(2);
+        return view('PostEdit.GithubUser.edit',compact('posts','auth_users','login_user'));
     }
     // ---------------------------------------------------------------------------------------------------------------------------
     // ここで変数にidを指定しているので、この関数に対する{{ route('items.editor.view',$item->id) }}の「->id」がないとエラーになる
@@ -168,13 +169,13 @@ class GithubUrlOnController extends Controller
         $search_results = GithubContactForm::where('VisitorName', 'like', "%$searchTerm%")
                             ->orWhere('VisitorEmail', 'like', "%$searchTerm%")
                             ->orWhere('QuestionOrOpinion', 'like', "%$searchTerm%")
-                            ->get();//->get()で一気に取得
+                            ->paginate(10);//１０件ずつ分割取得
         $count_search_results = GithubContactForm::where('VisitorName', 'like', "%$searchTerm%")
                                 ->orWhere('VisitorEmail', 'like', "%$searchTerm%")
                                 //orWhereはたぶんorだし、またはこれを検索結果に含めるの意味
                                 ->orWhere('QuestionOrOpinion', 'like', "%$searchTerm%")
                                 ->count();//->count()で取得したレコードの数を数える
 
-        return view('main.admin_menu.Non_Github_users_searched_index', compact('search_results','count_search_results','auth_users','posts','login_user'));
+        return view('main.admin_menu.Github_users_searched_index', compact('search_results','count_search_results','auth_users','posts','login_user'));
     }
 }

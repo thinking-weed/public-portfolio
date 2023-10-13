@@ -101,11 +101,12 @@ class ContactController extends Controller
         /**
      *質問・意見等の編集（コメントの付与）
      * */
-    public function editorview(ContactForm $post)
+    public function editorview()
     {
         $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
         $login_user = Auth::user();//ログインユーザー情報を取得
-        return view('PostEdit.NonGithubUser.edit',compact('post','auth_users','login_user'));
+        $posts = ContactForm::paginate(2);
+        return view('PostEdit.NonGithubUser.edit',compact('posts','auth_users','login_user'));
     }
     // ---------------------------------------------------------------------------------------------------------------------------
     // ここで変数にidを指定しているので、この関数に対する{{ route('items.editor.view',$item->id) }}の「->id」がないとエラーになる
@@ -116,7 +117,7 @@ class ContactController extends Controller
      * タイプヒントに注意）
      */
     //updateメソッドでは、引数はRequest $requestと
-    public function update(Request $request, ContactForm $post)
+    public function update(Request $request,ContactForm $post)
     {
 
         // 条件付きバリデーション
@@ -189,7 +190,7 @@ class ContactController extends Controller
         $search_results = ContactForm::where('VisitorName', 'like', "%$searchTerm%")
                             ->orWhere('VisitorEmail', 'like', "%$searchTerm%")
                             ->orWhere('QuestionOrOpinion', 'like', "%$searchTerm%")
-                            ->get();//->get()で一気に取得
+                            ->paginate(10);//１０件ずつ分割取得
         $count_search_results = ContactForm::where('VisitorName', 'like', "%$searchTerm%")
                                 ->orWhere('VisitorEmail', 'like', "%$searchTerm%")
                                 //orWhereはたぶんorだし、またはこれを検索結果に含めるの意味
