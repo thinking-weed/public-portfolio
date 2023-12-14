@@ -28,7 +28,7 @@
                             <h2 class="font-semibold text-black-900">
 
                                 <a href="#" onclick="event.preventDefault(); Modalshow3()">
-                                    <p>{{ 'Github URL' }}<br>{{ 'メール添付のパスワードを入力してください' }}</p>
+                                    <p>{{ 'Github URL' }}<br>{{ 'パスワードを入力' }}</p>
                                 </a>
                             </h2>
                         </div>

@@ -49,8 +49,10 @@
 
         {{-- <script src="{{ asset('/js/home.js') }}"></script> --}}
         <script src="{{ asset('/js/appblade.js') }}"></script>
+        <script src="{{ asset('/js/home.js') }}"></script>
         <script src="{{ asset('/js/WindowModal_nav.js') }}"></script>
         <script src="{{ asset('/js/modal_adminPage.js') }}"></script>
+        <script src="{{ asset('/js/modal_homePage.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
@@ -280,7 +282,7 @@
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_techis_team_development" aria-expanded="false" aria-controls="collapseTwo_SCD_map">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_techis_team_development" aria-expanded="false" aria-controls="collapseTwo_Qiita_article">
                                             日本語での概要
                                             </button>
                                         </h2>
@@ -305,61 +307,109 @@
                             </a>
                         </div>
 
-                        <div id="SCD_map" class="SCD_map scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
+                        <div id="Qiita_article" class="Qiita_article scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
                             from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg
                             shadow-2xl shadow-gray-500/20 dark:shadow-none flex
                             motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div class="article">
-                                <div class="scd_map_image topic flex rounded-full">
-                                    <img src="{{ asset('/images/SCDmap-images/techlogo.png') }}" alt="TECH I.S.のロゴ">
-                                    <img src="{{ asset('/images/was-works/was_icon.png') }}" alt="WASのロゴ">
+                                <div class="Qiita_article_image topic flex rounded-full">
+                                    <img src="{{ asset('/images/qiita_icon.png') }}" alt="Qiitaのロゴ">
                                     <h2 class="font-semibold text-black-900" style="font-size:1.4rem;">
-                                        {{ '　SCD Map　'}}<br>{{'（supported by TECH I.S. & WAS）' }}
+                                        My Qiita Artcles（プログラミング学習備忘録・数学に関することあれこれ）
                                     </h2>
                                 </div>
 
-                                <div class="accordion SCD_map" id="accordion_SCD_map">
+                                <div class="accordion Qiita_article" id="accordion_Qiita_article">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_SCD_map" aria-expanded="false" aria-controls="collapseOne_SCD_map">
-                                                Browse the overview In English
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_Qiita_article" aria-expanded="false" aria-controls="collapseOne_Qiita_article">
+                                                About Programming
                                             </button>
                                         </h2>
-                                        <div id="collapseOne_SCD_map" class="accordion-collapse collapse" data-bs-parent="#accordion_SCD_map">
+                                        <div id="collapseOne_Qiita_article" class="accordion-collapse collapse" data-bs-parent="#accordion_Qiita_article">
                                             <div class="accordion-body">
                                                 <p class="mt-4 text-black-500 dark:text-black-400 leading-relaxed">
-                                                    {{ "　I've been learning Programming (HTML / CSS / Javascript  / PHP / MySQL  / Laravel / Github / Python3 / GeoGebra script) using the service of TECH I.S, Progate, commercially available study-aid books, Chat-GPT 3.5, and so on for about the past five months.
-                                                    Finally, by combining them & Learning at WAS, I am going to make a Web Application that analyses the purchasing psychology of Chinese and Korean inbounds, for Fukushima fishermen.
-                                                    this link Web site is the prototype." }}
+                                                    主に、LaravelやPythonを学習する中で特に自分が困ったり、悩んだりした部分を中心に備忘録としても使えるように
+                                                    書きました。
                                                 </p>
+                                                <br>
+                                                <ul>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/private/a468b3deccea13710359">
+                                                            １. Pyhtonのスクレイピングに関するライブラリ（beautifulsoup4）について
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/40510d7bc6db12ee50db">
+                                                            ２. Pyhtonで～.pyファイルを起動する方法が複数あり、できればコンソール（コマンドプロンプト）による方法をオススメする話
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/ba01c2c46e072a7ebb83">
+                                                            ３. Laravel等のフレームワークにCSSを当てるには「引き算」が時々必要になると感じた話
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_SCD_map" aria-expanded="false" aria-controls="collapseTwo_SCD_map">
-                                            日本語での概要
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_Qiita_article" aria-expanded="false" aria-controls="collapseTwo_Qiita_article">
+                                            About （statistical）Mathmatics
                                             </button>
                                         </h2>
-                                        <div id="collapseTwo_SCD_map" class="accordion-collapse collapse" data-bs-parent="#accordion_SCD_map">
+                                        <div id="collapseTwo_Qiita_article" class="accordion-collapse collapse" data-bs-parent="#accordion_Qiita_article">
                                             <div class="accordion-body">
                                                 <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
-                                                    　この約５か月、TECH I.S.のサービス、Progate、市販の学習参考書、Progate、Chat-GPT3.5等を利用してプログラミング（HTML / CSS / Javascript / PHP / MySQL / Laravel / Github / Python3 / GeoGebra script）を学んできました。
-                                                    最終的には、それらとWASで学んだことを組み合わせて、福島の原発事故で今も被害に遭われている方々のために、中国と韓国のインバウンドの購買心理を分析するWebアプリケーション、並びにそれに対応するECサイトを作ろうと思っています。
-                                                    このリンク先のウェブサイトはその試作品です。
+                                                    僭越ながら、主に統計検定の学習を進める中で学習した数学のおススメの勉強法や自分の途中計算の過程を記事にしてみました。
+                                                    ※「もし、ここが間違ってるよ」というところがありましたら、お気軽にご連絡ください
                                                 </p>
+                                                <br>
+                                                <ul>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/38a6438ddb1520ed3387">
+                                                            １. 確率統計学・統計検定学習備忘録　①条件付き確率　のイメージをつかむ問題
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/1d6c6db04c00b28f724a">
+                                                            ２. 確率統計学・統計検定学習備忘録　②統計検定1級2022数理統計　大問2別解・別解説
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/fe820b00b2f3b74f4580">
+                                                            ３. で、数学的帰納法って結局何に使うん？（´｡｀)　⇒　例えば、ヴァンデルモンドのたたみ込みの証明とか　⇒「非」復元抽出の公式の導出
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/36a3eadf0035557a1714">
+                                                            ４. 確率統計学・統計検定学習備忘録　③標本平均・標本分散（※復元抽出）、数Ⅰと数Bの統計の違い①
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/f8632f54bb33a3c49aaf">
+                                                            ５. 確率統計学・統計検定学習備忘録　④標本平均と平均（値）に関する公式の意味の違い
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/8099d221865afd6db3c6">
+                                                            ６. ⑤統計検定1級2022数理統計　大問3（１）（２）別解・別解説　ポアソン分布・ガウス分布に関する計算
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/8f0d04e622912c58e05d">
+                                                            ７. 統計検定学習備忘録　非復元抽出の標本平均に関する公式等
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <a class="ToWorks" href="#" onclick="event.preventDefault(); showAlert()">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                                </svg>
-                                <p>To works</p>
-                            </a>
+
                         </div>
 
                         <div class="NoTenki scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
@@ -381,7 +431,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_NoTenki" aria-expanded="false" aria-controls="collapseOne_NoTenki">
-                                                日本語での概要
+                                                日本語での概要（※設計中）
                                             </button>
                                         </h2>
                                         <div id="collapseOne_NoTenki" class="accordion-collapse collapse" data-bs-parent="#accordion_NoTenki">
@@ -408,7 +458,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_NoTenki" aria-expanded="false" aria-controls="collapseTwo_NoTenki">
-                                                Browse the overview In English
+                                                Browse the overview In English（Now Desiging）
                                             </button>
                                         </h2>
                                         <div id="collapseTwo_NoTenki" class="accordion-collapse collapse" data-bs-parent="#accordion_NoTenki">
@@ -451,127 +501,69 @@
                             </a>
                         </div>
 
-                        <div class="OragaEC_maker scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
+                        <div class="DesignDocuments scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
                                 from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg
                                 shadow-2xl shadow-gray-500/20 dark:shadow-none flex
                                 motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                                 <div class="article">
-                                    <div class="OragaEC_maker_image topic flex rounded-full">
-                                        <img src="{{ asset('/images/Oraga-images/oraga_icon.png') }}" alt="Oraga_ECのロゴ">
+                                    <div class="DesignDocuments_image topic flex rounded-full">
+                                        <img src="{{ asset('/images/design-documents-images/design-documents.png') }}" alt="このポートフォリオの仕様書のロゴ">
                                         <h2 class="font-semibold text-black-900">
-                                            {{ '　OragaEC_maker　'}}
+                                            {{ '　Design_Documents for this portfolio（仕様書）'}}
                                         </h2>
                                     </div>
 
-                                    <div class="accordion OragaEC_maker" id="accordion_OragaEC_maker">
+                                    <div class="accordion DesignDocuments" id="accordion_DesignDocuments">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_OragaEC_maker" aria-expanded="false" aria-controls="collapseOne_OragaEC_maker">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_DesignDocuments" aria-expanded="false" aria-controls="collapseOne_DesignDocuments">
                                                     Browse the overview In English
                                                 </button>
                                             </h2>
-                                            <div id="collapseOne_OragaEC_maker" class="accordion-collapse collapse" data-bs-parent="#accordion_OragaEC_maker">
+                                            <div id="collapseOne_DesignDocuments" class="accordion-collapse collapse" data-bs-parent="#accordion_DesignDocuments">
                                                 <div class="accordion-body">
-                                                    <p class="mt-4 text-black-500 dark:text-black-400 leading-relaxed">
-                                                        {{ '　I make "OragaEC_maker" to "break away from Amazon" now.
-                                                        I hope you can imagine an EC site maker with instructions for use that allows each company and local government
-                                                        to customize and design their prized products according to their products, just like "Super Mario Maker," a derivative game of "Super Mario,"
-                                                        one of the biggest companies that came out of Japan.'}}
-                                                    </p>
+                                                    <a href="#" onclick="event.preventDefault(); Modalshow6()">
+                                                        <p class="mt-4 text-black-500 dark:text-black-400 leading-relaxed">
+                                                            {{'Please contact me first so I can provide you with the password through email.'}}
+                                                            <br>{{ 'パスワードを入力' }}
+                                                        </p>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_OragaEC_maker" aria-expanded="false" aria-controls="collapseTwo_OragaEC_maker">
-                                            日本語での概要
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_DesignDocuments" aria-expanded="false" aria-controls="collapseTwo_DesignDocuments">
+                                                日本語の場合
                                             </button>
                                         </h2>
-                                        <div id="collapseTwo_OragaEC_maker" class="accordion-collapse collapse" data-bs-parent="#accordion_OragaEC_maker">
+                                        <div id="collapseTwo_DesignDocuments" class="accordion-collapse collapse" data-bs-parent="#accordion_DesignDocuments">
                                             <div class="accordion-body">
-                                                <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
-                                                    　「Amazonからの脱却」を目指し、考案しているのが、「OragaEC_maker」です。
-                                                    日本が生んだ大企業の１つ「super Mario」の派生ゲーム「super Mario Maker」のように
-                                                    各企業、各地方自治体が自慢の商品を、商品に合わせてカスタマイズ・デザインできる使用説明付きのECサイトmakerをイメージして設計しています。
-                                                </p>
+                                                <a href="#" onclick="event.preventDefault(); Modalshow6()">
+                                                    <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
+                                                        メールを通して、パスワードをお渡ししますので、まずはご連絡ください。
+                                                        <br>{{ 'パスワードを入力' }}
+                                                    </p>
+                                                </a>
                                             </div>
                                         </div>
                                         </div>
                                     </div>
                                 </div>
 
-                            <a href="#" onclick="event.preventDefault(); showAlert()" id="OragaEC_maker" class="ToWorks" >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                                </svg>
-                                <p>To works</p>
-                            </a>
                         </div>
 
-                        <div class="OCO scale-100 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl
-                                from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg
-                                shadow-2xl shadow-gray-500/20 dark:shadow-none flex
-                                motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                                <div class="article">
-                                    <div class="OCO_image topic flex rounded-full">
-                                        <img src="{{ asset('/images/oco-images/oco-icon.png') }}" alt="OCOのロゴ">
-                                        <h2 class="font-semibold text-black-900">
-                                            {{ '　OCO　'}}
-                                            <br>　～ツンデレ系Chatbot で異性の心を一緒に勉強しましょう～
-                                        </h2>
-                                    </div>
-
-                                    <div class="accordion OCO" id="accordion_OCO">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_OCO" aria-expanded="false" aria-controls="collapseOne_OCO">
-                                                    Browse the overview In English
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne_OCO" class="accordion-collapse collapse" data-bs-parent="#accordion_OCO">
-                                                <div class="accordion-body">
-                                                    <p class="mt-4 text-black-500 dark:text-black-400 leading-relaxed">
-                                                        {{ "　OCO is a twatty ChatGPT made in Python.
-                                                        If you don't write the prompt well, it is set up to sulk, get angry, or not answer in the first place;
-                                                        by getting angry at OCO, you can learn together what words and phrases not to say to your real girlfriend,
-                                                        wife, mother, boss at work, and other women,and women's heart ,little by little."}}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo_OCO" aria-expanded="false" aria-controls="collapseTwo_OCO">
-                                            日本語での概要
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo_OCO" class="accordion-collapse collapse" data-bs-parent="#accordion_OCO">
-                                            <div class="accordion-body">
-                                                <p class="mt-4 text-black-500 dark:text-white-400 leading-relaxed">
-                                                    　OCOはPythonによる、ツンデレ系ChatGPTです。上手くプロンプトを書かないと、すねたり、怒ったりして、そもそもあまり回答を返してくれないように設定してあります。
-                                                    OCOに怒られることによって、実際の彼女、妻、母親、職場の上司など女性に言ってはいけない言葉・フレーズ、女心を少しずつ一緒に学びましょう。
-                                                </p>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <a href="#" onclick="event.preventDefault(); showAlert()" id="OCO" class="ToWorks" >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                                </svg>
-                                <p>To works</p>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div style="margin-top: 3rem">
         @include('layouts.footer')
         </div>
 
+        {{--  パスワード入力用モーダル  --}}
+        @include('modals.password-authentication-modal.password-authentication-modal6')
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/home.js') }}"></script>
 

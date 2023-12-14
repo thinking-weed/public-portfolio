@@ -23,7 +23,7 @@ body {
 .outerwrap {
     width: 100%;
     margin: 0;
-    padding:0 0 1rem 0;
+    padding: 0 0 1rem 0;
 }
 .innerwrap {
     margin: 0 auto;
@@ -42,9 +42,9 @@ body {
 .biography,
 .myskills,
 .WorksAtWas,
-.SCD_map,
+.Qiita_article,
 .NoTenki,
-.OragaEC_maker,
+.DesignDocuments,
 .techis_team_development,
 .OCO {
     padding: 1rem;
@@ -125,9 +125,16 @@ body {
 .was img {
     margin: 0;
 }
-.scd_map_image h2 {
+.Qiita_article_image h2 {
     width: 100%;
     font-size: 1.5rem;
     margin: auto 0;
 }
-
+.qiita_link {
+    color: blue;
+    font-weight: bold;
+}
+.qiita_link:hover {
+    color: red;
+    text-decoration: underline;
+}

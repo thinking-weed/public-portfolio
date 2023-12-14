@@ -24,11 +24,11 @@ class WorksLinkController extends Controller
         なお、その際に上で定義した変数$postsを使用する*/
     }
 
-    public function showscd_map_imageWorks()
+    public function showQiita_article_imageWorks()
     {
         $auth_users = User::all();//Usersテーブルの情報をデータベースのusersテーブルから全て取得
         $login_user = Auth::user();//ログインユーザー情報を取得
-        return view('links.scd_map_image',compact('auth_users','login_user'));
+        return view('links.Qiita_article_image',compact('auth_users','login_user'));
 
         //例
         //$posts = Post::all();

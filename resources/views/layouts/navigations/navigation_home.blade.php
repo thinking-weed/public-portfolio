@@ -6,10 +6,7 @@
                 <a href="{{ route('contact.view') }}" class="contact_form" style="width:40%;">{{ 'Contact' }}</a>
                 <a href="{{ route('WasWorks.view') }}" class="was_works_link" style="width:50%;margin-right:0.5rem;">{{'Works supported by WAS'}}</a>
                 <a href="https://team171-system-9ae6c37d5beb.herokuapp.com/" class="team_development_link" style="width:50%;">{{'team_development at TECH I.S.'}}</a>
-                <a href="#" class="scd_map" class="SCD_map_link" id="SCD_map_link" onclick="event.preventDefault(); showAlert()" style="width:30%;">{{'SCD map'}}</a>
                 <a href="#" class="NoTenki" id="NoTenki" onclick="event.preventDefault(); showAlert()"style="width:30%;">{{'NoTenki'}}</a>
-                <a href="#" class="OragaEC_maker" id="OragaEC_maker" onclick="event.preventDefault(); showAlert()" style="width:40%;">{{'OragaEC maker'}}</a>
-                <a href="#" class="OCO" id="OCO" onclick="event.preventDefault(); showAlert()" style="width:20%;text-align:left;">{{'OCO'}}</a>
                 @if(Auth::user() && Auth::user()->role > 0)
                 <a href="#" class="Administrator" id="secure-link1" onclick="event.preventDefault(); Modalshow1()" style="width:50%;padding-right:1rem;">{{'Administrator only'}}</a>
                 @endif

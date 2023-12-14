@@ -6,10 +6,7 @@
                 <a href="{{ route('contact.view') }}" >{{ 'Contact' }}</a>
                 <a href="{{ route('WasWorks.view') }}" class="was_works_link" >{{'Works supported by WAS'}}</a>
                 <a href="https://team171-system-9ae6c37d5beb.herokuapp.com/" class="team_development_link">{{'team_development at TECH I.S.'}}</a>
-                <a href="#" class="SCD_map_link" id="SCD_map_link" onclick="event.preventDefault(); showAlert()">{{'SCD map'}}</a>
                 <a href="#" class="NoTenki" id="NoTenki" onclick="event.preventDefault(); showAlert()">{{'NoTenki'}}</a>
-                <a href="#" class="OragaEC_maker" id="OragaEC_maker" onclick="event.preventDefault(); showAlert()">{{'OragaEC maker'}}</a>
-                <a href="#" class="OCO" id="OCO" onclick="event.preventDefault(); showAlert()">{{'OCO'}}</a>
                 <a href="{{ route('home.view') }}" >{{'Home'}}</a>
             </div>
             <div class="users_selectbox">
