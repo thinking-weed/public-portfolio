@@ -336,7 +336,7 @@
                                                 <ul>
                                                     <li>
                                                         <a class="qiita_link" href="https://qiita.com/thinking-weed/private/a468b3deccea13710359">
-                                                            １. Pyhtonのスクレイピングに関するライブラリ（beautifulsoup4）について
+                                                            １. Pyhtonのスクレイピングに関するライブラリ（beautifulsoup4）公式ドキュメント日本語翻訳案
                                                         </a>
                                                     </li>
                                                     <li>
@@ -347,6 +347,16 @@
                                                     <li>
                                                         <a class="qiita_link" href="https://qiita.com/thinking-weed/items/ba01c2c46e072a7ebb83">
                                                             ３. Laravel等のフレームワークにCSSを当てるには「引き算」が時々必要になると感じた話
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/9de1556ccc40904b411c">
+                                                            ４. Anacondaを使わず、ScrapyでLaravelで作った自分のポートフォリオをモルモットにしてスクレイピングしてみた
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/private/28d381b9475d854f34f1">
+                                                            ５. Java備忘録①　IT業界未経験からPHP⇒Python⇒Javaと学習ロードマップを少しうろうろして感じたこと
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -400,6 +410,16 @@
                                                     <li>
                                                         <a class="qiita_link" href="https://qiita.com/thinking-weed/items/8f0d04e622912c58e05d">
                                                             ７. 統計検定学習備忘録　非復元抽出の標本平均に関する公式等
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/77d0b8aad001f3eb7730">
+                                                            ８. 機械学習学習１日目
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="qiita_link" href="https://qiita.com/thinking-weed/items/a841534b0cfd7ec96194">
+                                                            ９. 数学の勉強法における経験則から来る諸注意（解析学徒の視点から）
                                                         </a>
                                                     </li>
                                                 </ul>
