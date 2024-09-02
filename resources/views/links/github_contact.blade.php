@@ -37,7 +37,6 @@
                         <div class="EmailAddress rounded-full">
                             <img src="{{ asset('/images/contact-images/envelop.png') }}" alt="Emailアイコン">
                             <h2 class="font-semibold text-black-900">
-                                    <p>{{ 'itikawa-sunday.sci@outlook.jp' }}</p>
                             </h2>
                         </div>
                     </div>
